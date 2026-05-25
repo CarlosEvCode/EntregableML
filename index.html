@@ -1,11 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Senati - Machine Learning Entregable</title>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    
+    <div class="dashboard-container">
+        <!-- Menú Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>SENATI</h2>
+                <p>Machine Learning</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="ejercicios/ejercicio1/index.html" class="nav-link active" onclick="navigate(event, 'ejercicios/ejercicio1/index.html')">
+                            Ejercicio 1: Clasificación de Imágenes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ejercicios/ejercicio2/index.html" class="nav-link" onclick="navigate(event, 'ejercicios/ejercicio2/index.html')">
+                            Ejercicio 2: Trazado de Líneas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ejercicios/ejercicio3/index.html" class="nav-link" onclick="navigate(event, 'ejercicios/ejercicio3/index.html')">
+                            Ejercicio 3: Partes del Rostro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ejercicios/ejercicio4/index.html" class="nav-link" onclick="navigate(event, 'ejercicios/ejercicio4/index.html')">
+                            Ejercicio 4: Teachable Machine
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ejercicios/ejercicio5/index.html" class="nav-link" onclick="navigate(event, 'ejercicios/ejercicio5/index.html')">
+                            Ejercicio 5: Detector con Alarma
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="nav-divider">
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Área de Contenido Central (Iframe) -->
+        <main class="content-area">
+            <iframe id="content-frame" src="ejercicios/ejercicio1/index.html" title="Visor de Ejercicios"></iframe>
+        </main>
+    </div>
+
+    <script>
+        function navigate(event, url) {
+            // Evitar que recargue la página completa
+            event.preventDefault();
+
+            // Cambiar la fuente del iframe
+            const iframe = document.getElementById('content-frame');
+            iframe.src = url;
+
+            // Actualizar la clase activa en los enlaces
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
