@@ -1,14 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
-    <link rel="stylesheet" href="../../css/ejercicios.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1: Clasificación de Imágenes</title>
+    <link rel="stylesheet" href="../../css/ejercicios.css" />
+
+    <!-- Librería P5.js-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+
+    <!-- Librería ML5.js -->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
 </head>
+
 <body>
     <div class="exercise-container">
-        <h1>Ejercicio 1: Clasificación de Imágenes</h1>
+        <h1>Clasificación de Imágenes</h1>
+        <p>Selecciona una imagen para identificarla</p>
+
+        <!-- Catálogo de Miniaturas-->
+        <div class="gallery">
+            <div class="thumbnail active" onclick="cambiarImagen('../../assets/images/gato.jpg', this)">
+                <img src="../../assets/images/gato.jpg" alt="Gato" />
+                <span class="thumb-label">Gato</span>
+            </div>
+            <div class="thumbnail" onclick="cambiarImagen('../../assets/images/perro.jpg', this)">
+                <img src="../../assets/images/perro.jpg" alt="Perro" />
+                <span class="thumb-label">Perro</span>
+            </div>
+            <div class="thumbnail" onclick="cambiarImagen('../../assets/images/taza.jpg', this)">
+                <img src="../../assets/images/taza.jpg" alt="Taza" />
+                <span class="thumb-label">Taza</span>
+            </div>
+            <div class="thumbnail" onclick="cambiarImagen('../../assets/images/conejo.jpg', this)">
+                <img src="../../assets/images/conejo.jpg" alt="Conejo" />
+                <span class="thumb-label">Conejo</span>
+            </div>
+            <div class="thumbnail" onclick="cambiarImagen('../../assets/images/abstracto.jpg', this)">
+                <img src="../../assets/images/abstracto.jpg" alt="Abstracto" />
+                <span class="thumb-label">Abstracto</span>
+            </div>
+        </div>
+
+        <!-- Contenedor del Canvas de P5.js -->
+        <div id="canvas-container"></div>
+
+        <!-- Panel de Resultados del Clasificador -->
+        <div class="results-panel">
+            <div id="resultado-etiqueta">Cargando modelo...</div>
+            <div id="resultado-confianza"></div>
+        </div>
     </div>
+
+    <!-- Script de la lógica -->
+    <script src="app.js"></script>
 </body>
+
 </html>
