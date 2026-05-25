@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2</title>
+    <title>Ejercicio 2: Trazado de Líneas</title>
     <link rel="stylesheet" href="../../css/ejercicios.css">
+    
+    <!-- Librería P5.js-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+    
+    <!-- Librería ML5.js-->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
 </head>
 <body>
-    <div class="exercise-container">
-        <h1>Ejercicio 2: Trazado de Líneas</h1>
+    <div class="exercise-container" style="max-width: 760px;">
+        <h1>Trazado de Líneas entre Índices</h1>
+        <p>Muestra ambas manos para ver cómo se conectan</p>
+
+        <!-- Contenedor del Canvas -->
+        <div id="canvas-container"></div>
     </div>
+
+    <!-- Script de la logica -->
+    <script src="app.js"></script>
 </body>
 </html>
