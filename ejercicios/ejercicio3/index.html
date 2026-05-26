@@ -3,12 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 3: Detección de Partes del Rostro</title>
     <link rel="stylesheet" href="../../css/ejercicios.css">
+    
+    <!-- Librería P5.js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+    
+    <!-- Librería ML5.js -->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
 </head>
 <body>
-    <div class="exercise-container">
-        <h1>Ejercicio 3: Partes del Rostro</h1>
+    <div class="exercise-container" style="max-width: 760px;">
+        <h1>Detección de Partes del Rostro</h1>
+        <p>Selecciona qué parte de tu rostro deseas detectar y escoge un color.</p>
+
+        <!-- Fila de selección -->
+        <div class="control-row">
+            <div class="control-item">
+                <label for="selector-parte">Parte a detectar:</label>
+                <select id="selector-parte" class="custom-select">
+                    <option value="ojo-izq">Ojo Izquierdo</option>
+                    <option value="ojo-der">Ojo Derecho</option>
+                    <option value="ojos-ambos">Ambos Ojos</option>
+                    <option value="ceja-izq">Ceja Izquierda</option>
+                    <option value="ceja-der">Ceja Derecha</option>
+                    <option value="cejas-ambas">Ambas Cejas</option>
+                    <option value="labios">Labios</option>
+                    <option value="rostro">Todo el rostro</option>
+                </select>
+            </div>
+            
+            <div class="control-item">
+                <label for="selector-color">Color del trazo:</label>
+                <!-- Input de color personalizado -->
+                <input type="color" id="selector-color" class="custom-color" value="#ef4444">
+            </div>
+        </div>
+
+        <!-- Contenedor canvas -->
+        <div id="canvas-container"></div>
     </div>
+
+    <!-- Script de la logica-->
+    <script src="app.js"></script>
 </body>
 </html>

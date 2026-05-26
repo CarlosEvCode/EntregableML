@@ -44,6 +44,28 @@ p {
     margin-bottom: 20px;
 }
 
+/* Fila de controles interactivos (Filtros, selectores) */
+.control-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-item label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
 /* Galería de Miniaturas (Catálogo) */
 .gallery {
     display: flex;
@@ -142,20 +164,29 @@ canvas {
 }
 
 .custom-select, .custom-input {
-    width: 100%;
-    max-width: 320px;
-    padding: 10px 14px;
-    font-size: 0.95rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
     background-color: #ffffff;
     color: #1e293b;
     outline: none;
+    cursor: pointer;
     transition: border-color 0.15s ease;
 }
 
 .custom-select:focus, .custom-input:focus {
     border-color: #0f172a;
+}
+
+.custom-color {
+    width: 44px;
+    height: 36px;
+    padding: 2px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #ffffff;
 }
 
 .custom-button {
