@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 5</title>
+    <title>Ejercicio 5: Detector con Alarma</title>
     <link rel="stylesheet" href="../../css/ejercicios.css">
+    
+    <!-- Librería P5.js-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+    
+    <!-- Librería ML5.js-->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
 </head>
 <body>
-    <div class="exercise-container">
-        <h1>Ejercicio 5: Detector con Alarma</h1>
+    <div class="exercise-container" style="max-width: 760px;">
+        <h1>Detector de Personas con Alarma</h1>
+        <p>Detecta una persona por 5 segundos para activar la alarma</p>
+
+        <!-- Contenedor del Canvas -->
+        <div id="canvas-container"></div>
     </div>
+
+    <!-- Script de la logica -->
+    <script src="app.js"></script>
 </body>
 </html>
