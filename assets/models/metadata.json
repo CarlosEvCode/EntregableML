@@ -1,1 +1,1 @@
-{"tfjsVersion":"1.7.4","tmVersion":"2.4.14","packageVersion":"0.8.4-alpha2","packageName":"@teachablemachine/image","timeStamp":"2026-06-01T01:48:42.264Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["Botella","Billetera","Control","Plumon"],"imageSize":224}
+{"tfjsVersion":"1.7.4","tmVersion":"2.4.14","packageVersion":"0.8.4-alpha2","packageName":"@teachablemachine/image","timeStamp":"2026-06-01T13:34:22.950Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["Billetera","Botella","Control","Plumón"],"imageSize":224}
