@@ -2,8 +2,8 @@ let detector;
 let video;
 let detecciones = [];
 
-// Contador de fotogramas (60 fotogramas = 1 segundo, 300 fotogramas = 5 segundos)
-let fotogramasPersona = 0;
+// Variables de tiempo y alarma
+let tiempoInicio = null;
 let alarmaSonada = false;
 
 // Cargar modelo
@@ -32,10 +32,8 @@ function draw() {
   let detectarPersona = false;
   let contadorPersonas = 0;
 
-  // Dibujar objetos
-  for (let i = 0; i < detecciones.length; i++) {
-    let objeto = detecciones[i];
-
+  // Dibujar objetos detectados
+  for (let objeto of detecciones) {
     stroke(0, 255, 0);
     strokeWeight(3);
     noFill();
@@ -46,33 +44,32 @@ function draw() {
     textSize(18);
     text(objeto.label, objeto.x + 10, objeto.y + 20);
 
-    // Si es persona incrementar contador
+    // Si es persona, incrementar el contador
     if (objeto.label === "person") {
       detectarPersona = true;
       contadorPersonas++;
     }
   }
 
-  // Evaluar tiempo
+  // Evaluar tiempo de detección de personas
   if (detectarPersona) {
-    // Incrementar el contador de fotogramas
-    fotogramasPersona++;
-
-    // Limitar a un maximo de 300 fotogramas (5 segundos)
-    if (fotogramasPersona > 300) {
-      fotogramasPersona = 300;
+    // Si es la primera vez que se detecta en esta racha, guardar el tiempo de inicio
+    if (tiempoInicio === null) {
+      tiempoInicio = millis();
     }
 
-    // Calcular los segundos transcurridos
-    let segundos = fotogramasPersona / 60;
+    // Calcular el tiempo transcurrido (máximo 5000 ms / 5 segundos)
+    let tiempoTranscurrido = millis() - tiempoInicio;
+    let tiempoLimitado = min(tiempoTranscurrido, 5000);
+    let segundos = tiempoLimitado / 1000;
 
-    // Dibujar barra de progreso
+    // Dibujar barra de progreso (fondo gris)
     noStroke();
     fill(100);
     rect(70, 430, 500, 20);
 
-    // Dibujar la barra roja (ancho maximo de 500px)
-    let ancho = (fotogramasPersona / 300) * 500;
+    // Dibujar barra de progreso activa (roja, ancho proporcional)
+    let ancho = (tiempoLimitado / 5000) * 500;
     fill(255, 0, 0);
     rect(70, 430, ancho, 20);
 
@@ -82,12 +79,11 @@ function draw() {
     textAlign(CENTER, BOTTOM);
     text("Tiempo: " + segundos.toFixed(1) + "s / 5s", 320, 420);
 
-    // Alarma de voz
-    if (fotogramasPersona >= 300 && !alarmaSonada) {
-      // Cancelar cola de voz
-      speechSynthesis.cancel();
+    // Activar alarma de voz al llegar a los 5 segundos reales
+    if (tiempoTranscurrido >= 5000 && !alarmaSonada) {
+      speechSynthesis.cancel(); // Cancelar cualquier voz en cola
 
-      // Crear mensaje segun cantidad de personas
+      // Crear mensaje según la cantidad de personas detectadas
       let textoAlerta = "Alerta. Se detectó una persona por más de 5 segundos.";
       if (contadorPersonas > 1) {
         textoAlerta = "Alerta. Se detectaron " + contadorPersonas + " personas por más de 5 segundos.";
@@ -102,8 +98,8 @@ function draw() {
     }
 
   } else {
-    // Reiniciar variables
-    fotogramasPersona = 0;
+    // Reiniciar variables si ya no se detecta ninguna persona
+    tiempoInicio = null;
     alarmaSonada = false;
   }
 }
