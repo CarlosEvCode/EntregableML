@@ -39,58 +39,48 @@ function draw() {
         
         // Dibujar los puntos segun la selección
         if (parteElegida === "ojo-izq") {
-            for (let i = 0; i < rostro.leftEye.keypoints.length; i++) {
-                let punto = rostro.leftEye.keypoints[i];
+            for (let punto of rostro.leftEye.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "ojo-der") {
-            for (let i = 0; i < rostro.rightEye.keypoints.length; i++) {
-                let punto = rostro.rightEye.keypoints[i];
+            for (let punto of rostro.rightEye.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "ojos-ambos") {
-            for (let i = 0; i < rostro.leftEye.keypoints.length; i++) {
-                let punto = rostro.leftEye.keypoints[i];
+            for (let punto of rostro.leftEye.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
-            for (let i = 0; i < rostro.rightEye.keypoints.length; i++) {
-                let punto = rostro.rightEye.keypoints[i];
+            for (let punto of rostro.rightEye.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "ceja-izq") {
-            for (let i = 0; i < rostro.leftEyebrow.keypoints.length; i++) {
-                let punto = rostro.leftEyebrow.keypoints[i];
+            for (let punto of rostro.leftEyebrow.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "ceja-der") {
-            for (let i = 0; i < rostro.rightEyebrow.keypoints.length; i++) {
-                let punto = rostro.rightEyebrow.keypoints[i];
+            for (let punto of rostro.rightEyebrow.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "cejas-ambas") {
-            for (let i = 0; i < rostro.leftEyebrow.keypoints.length; i++) {
-                let punto = rostro.leftEyebrow.keypoints[i];
+            for (let punto of rostro.leftEyebrow.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
-            for (let i = 0; i < rostro.rightEyebrow.keypoints.length; i++) {
-                let punto = rostro.rightEyebrow.keypoints[i];
+            for (let punto of rostro.rightEyebrow.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "labios") {
-            for (let i = 0; i < rostro.lips.keypoints.length; i++) {
-                let punto = rostro.lips.keypoints[i];
+            for (let punto of rostro.lips.keypoints) {
                 circle(punto.x, punto.y, 5);
             }
         } 
         else if (parteElegida === "rostro") {
-            for (let i = 0; i < rostro.keypoints.length; i++) {
-                let punto = rostro.keypoints[i];
+            for (let punto of rostro.keypoints) {
                 circle(punto.x, punto.y, 4);
             }
         }
